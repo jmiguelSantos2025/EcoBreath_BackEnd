@@ -1,0 +1,12 @@
+# Ignora dependências
+node_modules/
+
+# Ignora arquivos de credenciais sensíveis
+*.json
+!firebaseConfig.json
+
+# Outros ignorados comuns
+.env
+dist/
+build/
+.DS_Store
