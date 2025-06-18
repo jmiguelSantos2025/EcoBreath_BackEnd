@@ -24,6 +24,8 @@ async function reprocessarDados() {
     const dadosSensores = snapshot1.val();
     const snapshot2 = await db.ref("/SensoresPPM").once("value");
     const dadosSensores2 = snapshot2.val();
+    const snapshot3 = await db.ref("/TempeUmid").once("value");
+    const dadosSensores3 = snapshot3.val();
 
     if (!dadosSensores) {
       console.log("Nenhum dado de sensores encontrado");
@@ -40,6 +42,7 @@ async function reprocessarDados() {
     const dadosParaSalvar = {
       CCOV: dadosSensores.CCOV || 0,
       CO2: dadosSensores2.CO2In || 0,
+      Temperatura: dadosSensores3.Temperatura || 0,
       timestamp: agora,
     };
 
