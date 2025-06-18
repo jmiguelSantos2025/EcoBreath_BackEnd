@@ -20,8 +20,10 @@ app.get("/", (req, res) => {
 
 async function reprocessarDados() {
   try {
-    const snapshot = await db.ref("/OutrosParametros").once("value");
-    const dadosSensores = snapshot.val();
+    const snapshot1 = await db.ref("/OutrosParametros").once("value");
+    const dadosSensores = snapshot1.val();
+    const snapshot2 = await db.ref("/SensoresPPM").once("value");
+    const dadosSensores2 = snapshot2.val();
 
     if (!dadosSensores) {
       console.log("Nenhum dado de sensores encontrado");
@@ -37,7 +39,7 @@ async function reprocessarDados() {
 
     const dadosParaSalvar = {
       CCOV: dadosSensores.CCOV || 0,
-      CO2: dadosSensores.CO2 || 0,
+      CO2: dadosSensores2.CO2In || 0,
       timestamp: agora,
     };
 
