@@ -42,6 +42,7 @@ async function reprocessarDados() {
     const dadosParaSalvar = {
       CCOV: dadosSensores.CCOV || 0,
       CO2: dadosSensores2.CO2In || 0,
+      CO: dadosSensores2.CO || 0,
       Temperatura: dadosSensores3.Temperatura || 0,
       timestamp: agora,
     };
@@ -54,9 +55,9 @@ async function reprocessarDados() {
   }
 }
 
-// Executa a função a cada 1 minuto (60000ms)
+
 setInterval(reprocessarDados, 60000);
-reprocessarDados(); // roda uma vez ao iniciar
+reprocessarDados(); 
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
