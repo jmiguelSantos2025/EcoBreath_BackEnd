@@ -41,7 +41,7 @@ async function reprocessarDados() {
 
     const dadosParaSalvar = {
       CCOV: dadosSensores.CCOV || 0,
-      CO2: dadosSensores2.CO2In || 0,
+      CO2: dadosSensores2.CO2Out|| 0,
       CO: dadosSensores2.CO || 0,
       Temperatura: dadosSensores3.Temperatura || 0,
       timestamp: agora,
